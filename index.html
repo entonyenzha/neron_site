@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeronExpert — AI решения под ключ</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+    <div class="starfield" aria-hidden="true">
+        <div class="stars-layer stars-far"></div>
+        <div class="stars-layer stars-mid"></div>
+        <div class="stars-layer stars-near"></div>
+        <div class="nebula-layer"></div>
+    </div>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <div class="ai-head">
+                    <svg viewBox="0 0 100 100" class="ai-svg">
+                        <defs>
+                            <linearGradient id="aiGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#0078D4"/>
+                                <stop offset="100%" style="stop-color:#00a4ef"/>
+                            </linearGradient>
+                            <filter id="glow">
+                                <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+                                <feMerge>
+                                    <feMergeNode in="coloredBlur"/>
+                                    <feMergeNode in="SourceGraphic"/>
+                                </feMerge>
+                            </filter>
+                        </defs>
+                        <circle cx="50" cy="50" r="45" fill="none" stroke="url(#aiGradient)" stroke-width="2" class="ai-circle"/>
+                        <circle cx="35" cy="40" r="8" fill="#0078D4" class="ai-eye left-eye" filter="url(#glow)"/>
+                        <circle cx="65" cy="40" r="8" fill="#00a4ef" class="ai-eye right-eye" filter="url(#glow)"/>
+                        <path d="M30 65 Q50 80 70 65" stroke="url(#aiGradient)" stroke-width="3" fill="none" class="ai-mouth" filter="url(#glow)"/>
+                        <circle cx="50" cy="20" r="5" fill="#0078D4" class="ai-antenna" filter="url(#glow)"/>
+                    </svg>
+                </div>
+                <span class="logo-text">NeronExpert</span>
+            </a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#about" class="nav-link">О компании</a></li>
+                <li><a href="#projects" class="nav-link">Проекты</a></li>
+                <li><a href="#contact" class="nav-link">Контакты</a></li>
+            </ul>
+            <div class="burger" id="burger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+            <div class="hero-bg">
+                <div class="particles" id="particles"></div>
+                <div class="orbit-system" aria-hidden="true">
+                    <div class="orbit orbit-1">
+                        <div class="planet planet-1"></div>
+                    </div>
+                    <div class="orbit orbit-2">
+                        <div class="planet planet-2"></div>
+                    </div>
+                    <div class="orbit orbit-3">
+                        <div class="planet planet-3"></div>
+                    </div>
+                </div>
+                <div class="cosmic-wave" aria-hidden="true"></div>
+            </div>
+        <div class="hero-content" data-aos="fade-up">
+            <h1 class="hero-title">
+                <span class="greeting" id="greetingText">Вас приветствует</span>
+                <span class="brand">NeronExpert</span>
+            </h1>
+            <p class="hero-subtitle">Ваш партнёр в мире искусственного интеллекта</p>
+            <p class="hero-description">Мы создаём ИИ-решения под ключ, автоматизируем бизнес-процессы, настраиваем и развиваем ИИ-агентов.</p>
+            <div class="hero-buttons">
+                <a href="#projects" class="btn btn-primary">Наши проекты</a>
+                <a href="#contact" class="btn btn-secondary">Связаться</a>
+            </div>
+        </div>
+        <div class="ai-avatar" data-aos="fade-left" data-aos-delay="300">
+            <div class="avatar-container" id="aiAvatar">
+                <div class="avatar-ring"></div>
+                <div class="avatar-core">
+                    <svg viewBox="0 0 200 200" class="avatar-svg" id="avatarSvg">
+                        <defs>
+                            <linearGradient id="avatarGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#0078D4"/>
+                                <stop offset="50%" style="stop-color:#00a4ef"/>
+                                <stop offset="100%" style="stop-color:#ffffff"/>
+                            </linearGradient>
+                            <filter id="avatarGlow">
+                                <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                                <feMerge>
+                                    <feMergeNode in="coloredBlur"/>
+                                    <feMergeNode in="SourceGraphic"/>
+                                </feMerge>
+                            </filter>
+                        </defs>
+                        <!-- Face -->
+                        <ellipse cx="100" cy="100" rx="80" ry="90" fill="#1a1a1a" stroke="url(#avatarGradient)" stroke-width="2.5"/>
+                        <!-- Eyes -->
+                        <ellipse cx="65" cy="85" rx="18" ry="22" fill="#0f1923" stroke="#0078D4" stroke-width="2"/>
+                        <ellipse cx="135" cy="85" rx="18" ry="22" fill="#0f1923" stroke="#00a4ef" stroke-width="2"/>
+                        <!-- Pupils with glow -->
+                        <circle cx="65" cy="85" r="10" fill="#0078D4" class="pupil" filter="url(#avatarGlow)">
+                            <animate attributeName="r" values="10;12;10" dur="2s" repeatCount="indefinite"/>
+                        </circle>
+                        <circle cx="135" cy="85" r="10" fill="#00a4ef" class="pupil" filter="url(#avatarGlow)">
+                            <animate attributeName="r" values="10;12;10" dur="2s" repeatCount="indefinite"/>
+                        </circle>
+                        <!-- Nose -->
+                        <path d="M100 95 L95 130 L105 130 Z" fill="none" stroke="url(#avatarGradient)" stroke-width="2"/>
+                        <!-- Mouth with enhanced lip-sync capability -->
+                        <g id="mouthGroup">
+                            <!-- Upper lip -->
+                            <path id="upperLip" d="M70 150 Q85 145 100 145 Q115 145 130 150" 
+                                  fill="none" stroke="url(#avatarGradient)" stroke-width="2.5" class="lip"/>
+                            <!-- Lower lip -->
+                            <path id="lowerLip" d="M70 160 Q85 175 100 175 Q115 175 130 160" 
+                                  fill="none" stroke="url(#avatarGradient)" stroke-width="2.5" class="lip"/>
+                            <!-- Mouth opening -->
+                            <path id="mouthOpening" d="M70 155 Q100 165 130 155" 
+                                  fill="none" stroke="url(#avatarGradient)" stroke-width="0" class="mouth-opening"/>
+                            <!-- Teeth (visible when mouth opens) -->
+                            <rect id="upperTeeth" x="75" y="148" width="50" height="8" rx="2" 
+                                  fill="#ffffff" opacity="0" class="teeth"/>
+                            <rect id="lowerTeeth" x="75" y="158" width="50" height="8" rx="2" 
+                                  fill="#ffffff" opacity="0" class="teeth"/>
+                            <!-- Tongue -->
+                            <ellipse id="tongue" cx="100" cy="168" rx="15" ry="8" 
+                                     fill="#ff6b6b" opacity="0" class="tongue"/>
+                        </g>
+                        <!-- Circuit lines -->
+                        <path d="M20 50 L50 60 L50 90 L20 100" stroke="#0078D4" stroke-width="1" fill="none" opacity="0.5"/>
+                        <path d="M180 50 L150 60 L150 90 L180 100" stroke="#00a4ef" stroke-width="1" fill="none" opacity="0.5"/>
+                        <path d="M30 170 L60 160 L60 130 L30 120" stroke="#0078D4" stroke-width="1" fill="none" opacity="0.5"/>
+                        <path d="M170 170 L140 160 L140 130 L170 120" stroke="#00a4ef" stroke-width="1" fill="none" opacity="0.5"/>
+                    </svg>
+                </div>
+            </div>
+            <!-- Speech bubble for AI response -->
+            <div id="aiResponseText" class="ai-response-text"></div>
+            
+            <!-- AI Chat Interface -->
+            <div class="ai-chat-container" id="aiChatContainer">
+                <div class="ai-chat" id="aiChat">
+                    <div class="chat-input-wrapper">
+                        <input type="text" id="chatInput" class="chat-input" placeholder="Спроси НейронЭксперт..." autocomplete="off">
+                        <button id="chatSendBtn" class="chat-send-btn" aria-label="Отправить">
+                            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 2L11 13M22 2L15 22L11 13M22 2L2 9L11 13"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Audio element for greeting (will be generated dynamically) -->
+    <audio id="greetingAudio" preload="auto"></audio>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">О компании</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="about-content">
+                <div class="about-text" data-aos="fade-right">
+                    <h3>Инновации в каждой строке кода</h3>
+                    <p>NeronExpert — это команда экспертов в области искусственного интеллекта и автоматизации. Мы преобразуем сложные технологические вызовы в элегантные решения, которые помогают вашему бизнесу расти.</p>
+                    <div class="about-features">
+                        <div class="feature" data-detail="Мы проектируем и обучаем ИИ-агентов под ваши процессы: сценарии диалогов, интеграции с CRM и аналитикой, сценарные триггеры и контроль качества.">
+                            <div class="feature-icon">🤖</div>
+                            <div class="feature-content">
+                                <h4>ИИ-агенты</h4>
+                                <p>Создание и обучение интеллектуальных агентов под ваши задачи</p>
+                            </div>
+                        </div>
+                        <div class="feature" data-detail="Автоматизация включает аудит процессов, построение цепочек, мониторинг и оптимизацию. Мы внедряем надежные сценарии с логированием и безопасными правилами.">
+                            <div class="feature-icon">⚡</div>
+                            <div class="feature-content">
+                                <h4>Автоматизация</h4>
+                                <p>Оптимизация бизнес-процессов для максимальной эффективности</p>
+                            </div>
+                        </div>
+                        <div class="feature" data-detail="Аналитика — от сбора данных до дашбордов и прогнозов: сегментация, выявление узких мест и рекомендации для роста эффективности.">
+                            <div class="feature-icon">📊</div>
+                            <div class="feature-content">
+                                <h4>Аналитика</h4>
+                                <p>Глубокий анализ данных для принятия правильных решений</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-stats" data-aos="fade-left">
+                    <div class="stats-comet" aria-hidden="true"></div>
+                    <div class="stat-card" data-detail="150+ проектов внедрены от MVP до масштабируемых платформ: от чат‑ботов и интеграций до сложных автоматизаций под ключ.">
+                        <span class="stat-number" data-count="150">0</span>
+                        <span class="stat-label">Проектов</span>
+                    </div>
+                    <div class="stat-card" data-detail="50+ клиентов из разных отраслей: e‑commerce, услуги, финтех, образование и медиа. Мы работаем с задачами любого масштаба.">
+                        <span class="stat-number" data-count="50">0</span>
+                        <span class="stat-label">Клиентов</span>
+                    </div>
+                    <div class="stat-card" data-detail="99% успешных запусков: стабильные релизы, качественная поддержка и непрерывная оптимизация после внедрения.">
+                        <span class="stat-number" data-count="99">0</span>
+                        <span class="stat-label">% успеха</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects" id="projects">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">Наши проекты</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="projects-rocket" aria-hidden="true"></div>
+            <div class="projects-grid">
+                <!-- Project 1 -->
+                <div class="project-card" data-aos="flip-left" data-aos-delay="100" data-detail="Интеллектуальная CRM‑платформа с ИИ‑ассистентом, которая автоматизирует продажи, приоритизирует лиды, подсказывает следующий шаг менеджеру и формирует отчеты в реальном времени. Включает интеграции с мессенджерами и телефонией.">
+                    <div class="card-image">
+                        <div class="card-bg-gradient gradient-1"></div>
+                        <div class="card-icon">
+                            <svg viewBox="0 0 64 64" aria-hidden="true">
+                                <circle cx="32" cy="32" r="18" />
+                                <circle cx="18" cy="28" r="4" />
+                                <circle cx="46" cy="24" r="4" />
+                                <circle cx="44" cy="44" r="4" />
+                                <line x1="22" y1="28" x2="28" y2="30" />
+                                <line x1="36" y1="30" x2="42" y2="26" />
+                                <line x1="36" y1="36" x2="42" y2="42" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3>SmartBot</h3>
+                        <p>Интеллектуальный чат-бот с поддержкой естественного языка. Понимает контекст, обучается и помогает клиентам 24/7.</p>
+                        <ul class="card-features">
+                            <li>NLP обработка</li>
+                            <li>Многоканальность</li>
+                            <li>Интеграция с CRM</li>
+                        </ul>
+                        <button type="button" class="btn btn-card project-details-btn">Подробнее</button>
+                    </div>
+                </div>
+                <!-- Project 2 -->
+                <div class="project-card" data-aos="flip-left" data-aos-delay="200" data-detail="AI‑помощник для e‑commerce, который увеличивает конверсию: рекомендации, персонализация витрины, умные ответы в чате и автоматическое сопровождение заказа. Оптимизирует маркетинг и удержание клиентов.">
+                    <div class="card-image">
+                        <div class="card-bg-gradient gradient-2"></div>
+                        <div class="card-icon">
+                            <svg viewBox="0 0 64 64" aria-hidden="true">
+                                <polyline points="10,44 26,32 38,38 54,18" />
+                                <circle cx="26" cy="32" r="3" />
+                                <circle cx="38" cy="38" r="3" />
+                                <circle cx="54" cy="18" r="3" />
+                                <line x1="10" y1="50" x2="54" y2="50" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3>DataVision AI</h3>
+                        <p>Платформа визуализации и аналитики данных. Превращайте сырые данные в понятные инсайты и прогнозы.</p>
+                        <ul class="card-features">
+                            <li>Real-time аналитика</li>
+                            <li>AI-прогнозирование</li>
+                            <li>Интерактивные дашборды</li>
+                        </ul>
+                        <button type="button" class="btn btn-card project-details-btn">Подробнее</button>
+                    </div>
+                </div>
+                <!-- Project 3 -->
+                <div class="project-card" data-aos="flip-left" data-aos-delay="300" data-detail="Система автоматизации бизнес‑процессов с визуальным конструктором: маршрутизация задач, правила, триггеры, контроль SLA и аналитика по эффективности. Подходит для масштабируемых команд и сложных цепочек.">
+                    <div class="card-image">
+                        <div class="card-bg-gradient gradient-3"></div>
+                        <div class="card-icon">
+                            <svg viewBox="0 0 64 64" aria-hidden="true">
+                                <path d="M32 14a18 18 0 1 1-12.7 5.3" />
+                                <polyline points="18,10 18,20 28,20" />
+                                <circle cx="32" cy="32" r="5" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3>AutoFlow</h3>
+                        <p>Система автоматизации бизнес-процессов. Создавайте сложные рабочие процессы без программирования.</p>
+                        <ul class="card-features">
+                            <li>Drag & Drop</li>
+                            <li>100+ интеграций</li>
+                            <li>Уведомления в реальном времени</li>
+                        </ul>
+                        <button type="button" class="btn btn-card project-details-btn">Подробнее</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">Свяжитесь с нами</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info" data-aos="fade-right">
+                    <h3>Давайте обсудим ваш проект</h3>
+                    <p>Готовы превратить ваши идеи в реальность? Напишите нам, и мы свяжемся с вами в ближайшее время.</p>
+                    <div class="contact-links">
+                        <a href="https://wa.me/77079361396" class="contact-link" target="_blank" rel="noopener">
+                            <span class="contact-icon">
+                                <svg viewBox="0 0 64 64" aria-hidden="true">
+                                    <path d="M22 10h20a6 6 0 0 1 6 6v32a6 6 0 0 1-6 6H22a6 6 0 0 1-6-6V16a6 6 0 0 1 6-6z"/>
+                                    <circle cx="32" cy="46" r="3"/>
+                                    <path d="M24 22h16"/>
+                                </svg>
+                            </span>
+                            <span>WhatsApp</span>
+                        </a>
+                        <a href="https://t.me/jarikdevo" class="contact-link" target="_blank" rel="noopener">
+                            <span class="contact-icon">
+                                <svg viewBox="0 0 64 64" aria-hidden="true">
+                                    <path d="M10 30l44-18-18 44-6-16-20-10z"/>
+                                    <path d="M26 34l8 8"/>
+                                </svg>
+                            </span>
+                            <span>Telegram</span>
+                        </a>
+                        <a href="mailto:djarikdevo@tutamail.com" class="contact-link">
+                            <span class="contact-icon">
+                                <svg viewBox="0 0 64 64" aria-hidden="true">
+                                    <rect x="10" y="16" width="44" height="32" rx="6"/>
+                                    <path d="M12 20l20 14 20-14"/>
+                                </svg>
+                            </span>
+                            <span>djarikdevo@tutamail.com</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="ufo" aria-hidden="true"></div>
+                <div class="contact-form-container" data-aos="fade-left">
+                    <form class="contact-form" id="contactForm"
+                          data-to-email="djarikdevo@tutamail.com"
+                          data-emailjs-service=""
+                          data-emailjs-template=""
+                          data-emailjs-key="">
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" placeholder="Ваше имя" required>
+                            <span class="input-highlight"></span>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" placeholder="Ваш Email" required>
+                            <span class="input-highlight"></span>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" name="message" placeholder="Ваше сообщение" rows="4" required></textarea>
+                            <span class="input-highlight"></span>
+                        </div>
+                        <button type="submit" class="btn btn-submit">
+                            <span class="btn-text">Отправить</span>
+                            <span class="btn-icon">→</span>
+                        </button>
+                    </form>
+                    <div class="form-status" id="formStatus"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Details Modal -->
+    <div class="modal-overlay" id="projectModal" aria-hidden="true">
+        <div class="modal-window" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+            <button class="modal-close" id="modalCloseBtn" aria-label="Закрыть">×</button>
+            <div class="modal-content">
+                <h3 id="modalTitle"></h3>
+                <p id="modalDescription"></p>
+                <ul id="modalFeatures"></ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-pulse" aria-hidden="true"></div>
+                <p class="footer-text">© 2025 NeronExpert. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
