@@ -2261,12 +2261,13 @@ img {
         border-color: transparent transparent rgba(26, 26, 26, 0.95) transparent;
     }
 
-    /* Mobile performance: reduce heavy background effects */
+    /* Mobile performance: disable heavy background effects */
     .starfield,
     .orbit-system,
     .cosmic-wave,
     .projects-rocket,
-    .ufo {
+    .ufo,
+    .hero-bg {
         display: none !important;
     }
 
@@ -2282,6 +2283,59 @@ img {
     .contact-link,
     .contact-form-container {
         box-shadow: none;
+    }
+
+    /* Mobile scaling for AI head + chat */
+    :root {
+        --ai-chat-width: 260px;
+    }
+
+    .ai-avatar {
+        width: var(--ai-chat-width);
+        left: 0;
+        margin-left: 0;
+    }
+
+    .avatar-container {
+        width: 72px;
+        height: 72px;
+        transform: translateY(-10px);
+    }
+
+    .avatar-core {
+        width: 72px;
+        height: 72px;
+    }
+
+    .avatar-ring {
+        width: 54px;
+        height: 54px;
+    }
+
+    .ai-chat-container {
+        width: var(--ai-chat-width);
+        margin-left: 0;
+        transform: none;
+    }
+}
+
+/* Reduced motion: keep visuals, reduce animation cost */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    .projects-rocket,
+    .ufo,
+    .orbit-system,
+    .cosmic-wave,
+    .starfield,
+    .footer-pulse::before,
+    .footer-pulse::after {
+        display: none !important;
     }
 }
 
